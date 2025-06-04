@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <script>
                     document.write(new Date().getFullYear())
-                </script> © Hyper - Coderthemes.com
+                </script> © XCL - xcltechnologies.com
             </div>
         </div>
     </div>

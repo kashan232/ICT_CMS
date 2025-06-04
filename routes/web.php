@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CropController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
@@ -25,7 +26,29 @@ Route::get('/', function () {
 });
 
 Route::get('/New/Uploads', [PDFController::class, 'Upload'])->name('new.uploads');
+Route::post('/pdf-upload', [PDFController::class, 'store'])->name('pdf.upload');
+Route::get('/Uploads', [PDFController::class, 'uploads_files'])->name('uploads');
+Route::get('/pdfs/{id}/edit', [PDFController::class, 'edit'])->name('pdfs.edit');
+Route::put('/pdfs/{id}', [PDFController::class, 'update'])->name('pdfs.update');
+Route::delete('/pdfs/{id}', [PDFController::class, 'destroy'])->name('pdfs.destroy');
 
+Route::get('/New/category/Uploads', [CropController::class, 'Category'])->name('new.category.uploads');
+Route::post('/category/upload', [CropController::class, 'category_store'])->name('category.upload');
+Route::get('/categories', [CropController::class, 'categories_crops'])->name('categories');
+Route::get('/categories/{id}/edit', [CropController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/{id}', [CropController::class, 'update'])->name('categories.update');
+
+
+Route::get('/New/Crops/Uploads', [CropController::class, 'Crops'])->name('new.Crops.uploads');
+Route::post('/Crops/upload', [CropController::class, 'Crops_store'])->name('Crops.upload');
+Route::get('/Crops', [CropController::class, 'uploads_crops'])->name('Crops');
+Route::get('/crops/edit/{id}', [CropController::class, 'crop_edit'])->name('Crops.edit');
+Route::post('/crops/update/{id}', [CropController::class, 'crop_update'])->name('Crops.update');
+Route::get('/Crops/Managements', [CropController::class, 'crops_managements'])->name('Crops.Managements');
+Route::get('/get-crops/{id}', [CropController::class, 'getByCategory'])->name('Crops.getByCategory');
+Route::post('/crops-management/upload', [CropController::class, 'Crops_Management_store'])->name('Crops.Management.upload');
+Route::get('/crops-management', [CropController::class, 'uploads_crops_management'])->name('crops-management');
+Route::get('edit-crops-management/{id}', [CropController::class, 'edit_crops_managements'])->name('edit.Crops.Managements');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

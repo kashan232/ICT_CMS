@@ -4,18 +4,18 @@
             <div class="logo-topbar">
                 <a href="#" class="logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/Ict_logo.png" alt="logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="logo">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/logo-sm.png" alt="small logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/logo-sm.png" alt="small logo">
                     </span>
                 </a>
                 <a href="#" class="logo-dark">
                     <span class="logo-lg">
-                        <img src="assets/images/Ict_logo.png" alt="dark logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="dark logo">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/logo-dark-sm.png" alt="small logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/logo-dark-sm.png" alt="small logo">
                     </span>
                 </a>
             </div>
@@ -29,11 +29,10 @@
                     <span></span>
                 </div>
             </button>
-            
+
         </div>
 
         <ul class="topbar-menu d-flex align-items-center gap-3">
-           
 
             <li class="d-none d-sm-inline-block">
                 <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Theme Mode">
@@ -41,12 +40,10 @@
                 </div>
             </li>
 
-
-
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="account-user-avatar">
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                        <img src="{{ env('APP_URL') }}public/assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
                         <h5 class="my-0">Admin</h5>
