@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card shadow-sm border-0 rounded-3">
                             <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">PDFs Uploads</h5>
+                                <h5 class="mb-0">Crop Category</h5>
                             </div>
                             <div class="card-body">
                                 @if (session()->has('success'))

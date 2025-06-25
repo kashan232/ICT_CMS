@@ -66,7 +66,7 @@
                             <a href="{{ route('new.category.uploads') }}">New Category</a>
                         </li>
                         <li>
-                            <a href="{{ route('categories') }}">Categories</a>
+                            <a href="{{ route('categories-list') }}">Categories</a>
                         </li>
                     </ul>
                 </div>
@@ -88,8 +88,23 @@
                         <li>
                             <a href="{{ route('crops-management') }}">Crops Managements</a>
                         </li>
+                        <li>
+                            <a href="{{ route('crops-Diseases') }}">Diseases Managements</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('crops-Diseases-subtypes') }}">Diseases Types</a>
+                        </li>
                     </ul>
                 </div>
+            </li>
+            <li class="side-nav-item">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="side-nav-link">
+                        <i class="uil-home-alt"></i>
+                        <span> Logout </span>
+                    </a>
+                </form>
             </li>
         </ul>
         <div class="clearfix"></div>

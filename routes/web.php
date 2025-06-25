@@ -34,7 +34,7 @@ Route::delete('/pdfs/{id}', [PDFController::class, 'destroy'])->name('pdfs.destr
 
 Route::get('/New/category/Uploads', [CropController::class, 'Category'])->name('new.category.uploads');
 Route::post('/category/upload', [CropController::class, 'category_store'])->name('category.upload');
-Route::get('/categories', [CropController::class, 'categories_crops'])->name('categories');
+Route::get('/categories-list', [CropController::class, 'categories_crops'])->name('categories-list');
 Route::get('/categories/{id}/edit', [CropController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{id}', [CropController::class, 'update'])->name('categories.update');
 
@@ -49,6 +49,16 @@ Route::get('/get-crops/{id}', [CropController::class, 'getByCategory'])->name('C
 Route::post('/crops-management/upload', [CropController::class, 'Crops_Management_store'])->name('Crops.Management.upload');
 Route::get('/crops-management', [CropController::class, 'uploads_crops_management'])->name('crops-management');
 Route::get('edit-crops-management/{id}', [CropController::class, 'edit_crops_managements'])->name('edit.Crops.Managements');
+
+
+Route::get('/Diseases-management', [CropController::class, 'uploads_Diseases_management'])->name('Diseases-management');
+Route::post('/Diseases/upload', [CropController::class, 'Diseases_upload'])->name('Diseases.upload');
+Route::get('/crops-Diseases', [CropController::class, 'crops_Diseases'])->name('crops-Diseases');
+
+Route::get('/Diseases-type-management', [CropController::class, 'Diseases_type_management'])->name('Diseases-type-management');
+Route::post('/get-disease-types', [CropController::class, 'getDiseaseTypes'])->name('get.disease.types');
+Route::post('/crop-disease-subtypes/store', [CropController::class, 'storesubtypes'])->name('crop.disease.subtypes.store');
+Route::get('/crops-Diseases-subtypes', [CropController::class, 'crops_Diseases_subtypes'])->name('crops-Diseases-subtypes');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

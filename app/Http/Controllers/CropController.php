@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Crop;
 use App\Models\CropCategory;
+use App\Models\CropDiseaseSubType;
+use App\Models\CropDiseaseType;
 use App\Models\CropManagement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -274,6 +276,141 @@ class CropController extends Controller
                 'management',
                 'managementDetails'
             ));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function uploads_Diseases_management()
+    {
+        if (Auth::id()) {
+            $userId = Auth::id();
+            $categories = CropCategory::all();
+            $Crops = Crop::all();
+            return view('admin_panel.Crops.uploads_Diseases_management', compact('categories', 'Crops'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function Diseases_upload(Request $request)
+    {
+        foreach ($request->disease_types as $diseaseData) {
+            $diseaseType = new CropDiseaseType();
+            $diseaseType->category_id = $request->category_id;
+            $diseaseType->crop_id = $request->crop_id;
+            $diseaseType->type_name = $diseaseData['type_name'];
+
+            if (isset($diseaseData['image'])) {
+                $image = $diseaseData['image'];
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('disease'), $imageName);
+                $diseaseType->image = $imageName; // only name goes to DB
+            }
+
+            $diseaseType->save();
+        }
+
+        return back()->with('success', 'Disease Types added successfully!');
+    }
+
+    public function crops_Diseases()
+    {
+        if (Auth::id()) {
+            $categories = CropCategory::all();
+            $Crops = Crop::all();
+            $managements = DB::table('crop_disease_types')
+                ->join('crops', 'crop_disease_types.crop_id', '=', 'crops.id')
+                ->join('crop_categories', 'crop_disease_types.category_id', '=', 'crop_categories.id')
+                ->select(
+                    'crop_disease_types.*',
+                    'crops.crop_name',
+                    'crop_categories.name as category_name'
+                )
+                ->orderBy('crop_disease_types.id', 'desc')
+                ->get();
+            return view('admin_panel.Crops.crops_Diseases', compact('categories', 'Crops', 'managements'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function Diseases_type_management()
+    {
+        if (Auth::id()) {
+            $userId = Auth::id();
+            $categories = CropCategory::all();
+            $Crops = Crop::all();
+            return view('admin_panel.Crops.Diseases_type_management', compact('categories', 'Crops'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function getDiseaseTypes(Request $request)
+    {
+        $types = CropDiseaseType::where('category_id', $request->category_id)
+            ->where('crop_id', $request->crop_id)
+            ->get();
+
+        return response()->json(['status' => 'success', 'data' => $types]);
+    }
+
+    public function storesubtypes(Request $request)
+    {
+        foreach ($request->sub_diseases as $index => $sub) {
+            $imageName = null;
+
+            if ($request->hasFile("sub_diseases.$index.image")) {
+                $image = $request->file("sub_diseases.$index.image");
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('disease_subtypes'), $imageName); // Save in public/disease_subtypes
+            }
+
+            CropDiseaseSubType::create([
+                'category_id'      => $request->category_id,
+                'crop_id'          => $request->crop_id,
+                'disease_type_id'  => $sub['disease_type_id'],
+                'name'             => $sub['name'],
+                'control'          => $sub['control'] ?? null,
+                'image'            => $imageName, // Store only image name
+            ]);
+        }
+
+        return back()->with('success', 'Crop Disease Sub Types added successfully!');
+    }
+
+    public function crops_Diseases_subtypes()
+    {
+        if (Auth::id()) {
+            $categories = CropCategory::all();
+            $Crops = Crop::all();
+
+            $managements = DB::table('crop_disease_types')
+                ->join('crops', 'crop_disease_types.crop_id', '=', 'crops.id')
+                ->join('crop_categories', 'crop_disease_types.category_id', '=', 'crop_categories.id')
+                ->select(
+                    'crop_disease_types.*',
+                    'crops.crop_name',
+                    'crop_categories.name as category_name'
+                )
+                ->orderBy('crop_disease_types.id', 'desc')
+                ->get();
+
+            $subtypes = DB::table('crop_disease_sub_types')
+                ->join('crop_disease_types', 'crop_disease_sub_types.disease_type_id', '=', 'crop_disease_types.id')
+                ->join('crops', 'crop_disease_sub_types.crop_id', '=', 'crops.id')
+                ->join('crop_categories', 'crop_disease_sub_types.category_id', '=', 'crop_categories.id')
+                ->select(
+                    'crop_disease_sub_types.*',
+                    'crops.crop_name',
+                    'crop_categories.name as category_name',
+                    'crop_disease_types.type_name as disease_type_name'
+                )
+                ->orderBy('crop_disease_sub_types.id', 'desc')
+                ->get();
+
+            return view('admin_panel.Crops.crops_Diseases_subtypes', compact('categories', 'Crops', 'managements', 'subtypes'));
         } else {
             return redirect()->back();
         }
