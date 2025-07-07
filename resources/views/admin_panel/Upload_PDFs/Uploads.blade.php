@@ -5,12 +5,27 @@
     <div class="content-page">
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card shadow-sm border-0 rounded-3">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">PDFs Uploads</h5>
-                            </div>
+       <div class="row">
+                
+                    <div class="col-md-12 mt-5">
+                         
+                            
+                            <div class="card-body">
+  
+                            <div class="row ">
+     <div class="col-lg-6       ">
+ <h5 class="mb-0">PDF Uplaod</h5>
+                                    </div>
+                                    <div class="col-lg-6       ">
+    <div class="card-header text-white d-flex justify-content-end">
+    <a href="{{ route('new.uploads') }}" class="btn " style="background-color:green !important;color:white   !important">
+        Add PDF
+    </a>
+</div>
+                                    </div>
+                            </div>  
+                        <div class="card shadow-sm border-0 rounded-3 mt-2  ">
+                          
                             <div class="card-body">
                                 @if (session()->has('success'))
                                 <div class="alert alert-success">
@@ -18,15 +33,15 @@
                                 </div>
                                 @endif
                                  <table id="userTable" class="table">
-                                    <thead>
+                                    <thead  style="background-color:green !important;color:white   !important">
                                     <tr>
-                                        <th>#</th>
-                                        <th>PDF Type</th>
-                                        <th>Title</th>
-                                        <th>Date</th>
-                                        <th>Cover</th>
-                                        <th>PDF File</th>
-                                        <th>Action</th> <!-- New column -->
+                                        <th class="text-white">#</th>
+                                        <th class="text-white">PDF Type</th>
+                                        <th class="text-white">Title</th>
+                                        <th class="text-white">Date</th>
+                                        <th class="text-white">Cover</th>
+                                        <th class="text-white">PDF File</th>
+                                        <th class="text-white">Action</th> <!-- New column -->
                                     </tr>
                                 </thead>
                                 <tbody>

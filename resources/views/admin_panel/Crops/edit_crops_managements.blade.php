@@ -10,7 +10,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card shadow-sm border-0 rounded-3 mt-4">
-                            <div class="card-header bg-success text-white">
+                            <div class="card-header  text-white" style="background-color:green !important;color:white   !important">
                                 <h5 class="mb-0">Edit Crop Management</h5>
                             </div>
                             <div class="card-body">
@@ -21,62 +21,64 @@
                                 </div>
                                 @endif
 
-                                <form action="#" method="POST" enctype="multipart/form-data" id="managementForm">
-                                    @csrf
-                                    @method('PUT')
-
-                                    <div class="mb-3">
-                                        <label for="categorySelect" class="form-label">Crop Category</label>
-                                        <select class="form-control" name="category_id" id="categorySelect" required>
-                                            <option value="">Select Crop Category</option>
-                                            @foreach($categories as $cat)
-                                            <option value="{{ $cat->id }}" {{ $cat->id == $management->category_id ? 'selected' : '' }}>
-                                                {{ $cat->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="cropSelect" class="form-label">Crop</label>
-                                        <select class="form-control" name="crop_id" id="cropSelect" required>
-                                            <option value="">Select Crop</option>
-                                            @foreach($filteredCrops as $crop)
-                                            <option value="{{ $crop->id }}" {{ $crop->id == $management->crop_id ? 'selected' : '' }}>
-                                                {{ $crop->crop_name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-
-                                    <div id="dynamicSectionsContainer">
-                                        @php $count = 0; @endphp
-                                        @foreach($managementDetails as $index => $item)
-                                        @php $count++; @endphp
-                                        <div class="border p-3 rounded mb-3" id="section_{{ $count }}">
-                                            <label class="form-label">Management Type</label>
-                                            <select name="management_type[]" class="form-control mb-2" required>
-                                                <option value="">-- Select --</option>
-                                                <option value="plantNutrition" {{ $item->management_type == 'plantNutrition' ? 'selected' : '' }}>Plant Nutrition</option>
-                                                <option value="cropManagement" {{ $item->management_type == 'cropManagement' ? 'selected' : '' }}>Crop Management</option>
-                                                <option value="othersManagement" {{ $item->management_type == 'othersManagement' ? 'selected' : '' }}>Others Management</option>
-                                            </select>
-
-                                            <label class="form-label">Management Details</label>
-                                            <textarea name="management_details[]" id="editor_{{ $count }}" class="form-control" required>{!! $item->management_details !!}</textarea>
-
-                                            <button type="button" class="btn btn-danger btn-sm mt-2" onclick="removeSection({{ $count }})">Remove</button>
-                                        </div>
+                                    <form action="{{ route('Crops.Management.upload') }}" method="POST" enctype="multipart/form-data" id="managementForm">
+                                        @csrf
+                                        @method('POST')
+                                        @foreach($managementDetails as $cat)
+                                            <input type="hidden" id="edit_id" name="edit_id[]" value="{{ $cat->id }}">    
                                         @endforeach
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="categorySelect" class="form-label">Crop Category</label>
+                                            <select class="form-control" name="category_id" id="categorySelect" required>
+                                                <option value="">Select Crop Category</option>
+                                                @foreach($categories as $cat)
+                                                <option value="{{ $cat->id }}" {{ $cat->id == $management->category_id ? 'selected' : '' }}>
+                                                    {{ $cat->name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                    <button type="button" class="btn btn-sm btn-outline-success mb-3" id="addSectionBtn">Add Management Section</button>
+                                        <div class="mb-3">
+                                            <label for="cropSelect" class="form-label">Crop</label>
+                                            <select class="form-control" name="crop_id" id="cropSelect" required>
+                                                <option value="">Select Crop</option>
+                                                @foreach($filteredCrops as $crop)
+                                                <option value="{{ $crop->id }}" {{ $crop->id == $management->crop_id ? 'selected' : '' }}>
+                                                    {{ $crop->crop_name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
 
-                                    <div class="text-end mt-4">
-                                        <button type="submit" class="btn btn-success">Update</button>
-                                    </div>
-                                </form>
+
+                                        <div id="dynamicSectionsContainer">
+                                            @php $count = 0; @endphp
+                                            @foreach($managementDetails as $index => $item)
+                                            @php $count++; @endphp
+                                            <div class="border p-3 rounded mb-3" id="section_{{ $count }}">
+                                                <label class="form-label">Management Type</label>
+                                                <select name="management_type[]" class="form-control mb-2" required>
+                                                    <option value="">-- Select --</option>
+                                                    <option value="plantNutrition" {{ $item->management_type == 'plantNutrition' ? 'selected' : '' }}>Plant Nutrition</option>
+                                                    <option value="cropManagement" {{ $item->management_type == 'cropManagement' ? 'selected' : '' }}>Crop Management</option>
+                                                    <option value="othersManagement" {{ $item->management_type == 'othersManagement' ? 'selected' : '' }}>Others Management</option>
+                                                </select>
+
+                                                <label class="form-label">Management Details</label>
+                                                <textarea name="management_details[]" id="editor_{{ $count }}" class="form-control" required>{!! $item->management_details !!}</textarea>
+
+                                                <button type="button" class="btn btn-danger btn-sm mt-2" onclick="removeSection({{ $count }})">Remove</button>
+                                            </div>
+                                            @endforeach
+                                        </div>
+
+                                        <button type="button" class="btn btn-sm btn-secondary mb-3" id="addSectionBtn">Add Management Section</button>
+
+                                        <div class="text-end mt-4">
+                                            <button type="submit" class="btn " style="background-color:green !important;color:white   !important">Update</button>
+                                        </div>
+                                    </form>
 
                             </div>
                         </div>
@@ -95,11 +97,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    let count = {
-        {
-            count($managementDetails)
-        }
-    };
+  let count = {{ count($managementDetails) }};
+
 
     let editors = {};
 

@@ -19,15 +19,31 @@
     </div>
     @endforeach
 
-    <div class="content-page">
+    <div class="content-page mt-5">
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
+            
+                             <div class="row">
+                
                     <div class="col-md-12">
-                        <div class="card shadow-sm border-0 rounded-3">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">Crops</h5>
+                         
+                            
+                            <div class="card-body">
+  
+                            <div class="row ">
+     <div class="col-lg-6       ">
+ <h5 class="mb-0">Crops</h5>
+                                    </div>
+                                    <div class="col-lg-6       ">
+    <div class="card-header text-white d-flex justify-content-end">
+    <a href="{{ route('new.Crops.uploads') }}" class="btn " style="background-color:green !important;color:white   !important">
+        Add Crop
+    </a>
+</div>
+                                    </div>
                             </div>
+                        <div class="card shadow-sm border-0 rounded-3 mt-2      ">
+                        
                             <div class="card-body">
                                 @if (session()->has('success'))
                                 <div class="alert alert-success">
@@ -35,15 +51,15 @@
                                 </div>
                                 @endif
                                 <table id="userTable" class="table">
-                                    <thead class="table-success">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Category</th>
-                                            <th>Crop Name</th>
-                                            <th>Image</th>
-                                            <th>Details</th>
-                                            <th>Type Info</th>
-                                            <th>Action</th>
+                                    <thead class="" style="background-color:green !important;color:white   !important">
+                                        <tr >
+                                             <th class="text-white">#</th>
+                                             <th class="text-white">Category</th>
+                                             <th class="text-white">Crop Name</th>
+                                             <th class="text-white">Image</th>
+                                             <th class="text-white">Details</th>
+                                             <th class="text-white">Type Info</th>
+                                             <th class="text-white">Action</th>
 
                                         </tr>
                                     </thead>
@@ -74,7 +90,7 @@
                                                 </ul>
                                             </td>
                                             <td>
-                                                <a href="{{ route('Crops.edit', $crop->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                                <a href="{{ route('Crops.edit', $crop->id) }}" class="btn btn-sm " style="background-color:green !important;color:white   !important">Edit</a>
                                             </td>
 
                                         </tr>

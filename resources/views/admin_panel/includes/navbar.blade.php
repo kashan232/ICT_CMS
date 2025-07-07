@@ -1,13 +1,14 @@
-<div class="navbar-custom">
+<div class="navbar-custom " style="margin-top:0%">
     <div class="topbar container-fluid">
         <div class="d-flex align-items-center gap-lg-2 gap-1">
             <div class="logo-topbar">
                 <a href="#" class="logo-light">
                     <span class="logo-lg">
-                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="logo" style="height:100px !important;width:100px">
                     </span>
                     <span class="logo-sm">
-                        <img src="{{ env('APP_URL') }}public/assets/images/logo-sm.png" alt="small logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="logo" style="height:100px !important;width:100px">
+
                     </span>
                 </a>
                 <a href="#" class="logo-dark">
@@ -15,7 +16,8 @@
                         <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="dark logo">
                     </span>
                     <span class="logo-sm">
-                        <img src="{{ env('APP_URL') }}public/assets/images/logo-dark-sm.png" alt="small logo">
+                        <img src="{{ env('APP_URL') }}public/assets/images/Ict_logo.png" alt="logo">
+
                     </span>
                 </a>
             </div>
@@ -33,12 +35,12 @@
         </div>
 
         <ul class="topbar-menu d-flex align-items-center gap-3">
-
+<!-- 
             <li class="d-none d-sm-inline-block">
                 <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="Theme Mode">
                     <i class="ri-moon-line font-22"></i>
                 </div>
-            </li>
+            </li> -->
 
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">

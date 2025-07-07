@@ -54,10 +54,12 @@ Route::get('edit-crops-management/{id}', [CropController::class, 'edit_crops_man
 Route::get('/Diseases-management', [CropController::class, 'uploads_Diseases_management'])->name('Diseases-management');
 Route::post('/Diseases/upload', [CropController::class, 'Diseases_upload'])->name('Diseases.upload');
 Route::get('/crops-Diseases', [CropController::class, 'crops_Diseases'])->name('crops-Diseases');
+Route::get('/crops-Diseases/edit/{id}', [CropController::class, 'crops_Diseases_edit'])->name('crops-Diseases-edit');
 
 Route::get('/Diseases-type-management', [CropController::class, 'Diseases_type_management'])->name('Diseases-type-management');
 Route::post('/get-disease-types', [CropController::class, 'getDiseaseTypes'])->name('get.disease.types');
 Route::post('/crop-disease-subtypes/store', [CropController::class, 'storesubtypes'])->name('crop.disease.subtypes.store');
+Route::get('/crop-disease-subtypes/edit/{id}', [CropController::class, 'Diseases_sub_type_edit'])->name('Disease.ssub.type.edit');
 Route::get('/crops-Diseases-subtypes', [CropController::class, 'crops_Diseases_subtypes'])->name('crops-Diseases-subtypes');
 
 // Route::get('/dashboard', function () {

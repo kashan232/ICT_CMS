@@ -5,27 +5,38 @@
     <div class="content-page">
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card shadow-sm border-0 rounded-3">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">Crops</h5>
-                                <a href="{{ route('Crops.Managements') }}" class="btn btn-secondary"> Add Management</a>
+     <div class="row">
+                
+                    <div class="col-md-12 mt-4">
+                         
+                            
+                            <div class="card-body mt-2">
+  
+                            <div class="row ">
+     <div class="col-lg-6       ">
+ <h5 class="mb-0">Add Management</h5>
+                                    </div>
+                                    <div class="col-lg-6       ">
+    <div class="card-header text-white d-flex justify-content-end">
+                                <a href="{{ route('Crops.Managements') }}" class="btn " style="background-color:green !important;color:white   !important"> Add Management</a>
+
+</div>
+                                    </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body mt-2">
                                 @if(count($managements) > 0)
-                                <div class="card mt-5">
+                                <div class="card ">
                                     <div class="card-body table-responsive">
                                         <table id="userTable" class="table">
-                                            <thead class="table-light">
+                                            <thead class=""  style="background-color:green !important;color:white   !important">
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Category</th>
-                                                    <th>Crop</th>
-                                                    <th>Management Type</th>
-                                                    <th>Management Details</th>
-                                                    <th>Created At</th>
-                                                    <th>Action</th>
+                                                     <th class="text-white">#</th>
+                                                     <th class="text-white">Category</th>
+                                                     <th class="text-white">Crop</th>
+                                                     <th class="text-white">Management Type</th>
+                                                     <th class="text-white">Management Details</th>
+                                                     <th class="text-white">Created At</th>
+                                                     <th class="text-white">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -37,7 +48,7 @@
                                                     <td>{{ ucfirst($item->management_type) }}</td>
                                                     <td>{!! Str::limit($item->management_details, 100) !!}</td>
                                                     <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
-                                                    <td><a href="{{ route('edit.Crops.Managements', $item->id) }}" class="btn btn-primary btn-sm"> Edit </a>
+                                                    <td><a href="{{ route('edit.Crops.Managements',$item->id) }}" class="btn  btn-sm" style="background-color:green !important;color:white   !important"> Edit </a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

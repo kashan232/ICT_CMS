@@ -7,8 +7,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card shadow-sm border-0 rounded-3">
-                            <div class="card-header bg-success text-white">
+                        <div class="card shadow-sm border-0 rounded-3 mt-5">
+                            <div class="card-header text-white"   style="background-color:green !important;color:white   !important">
                                 <h5 class="mb-0">Add New Category</h5>
                             </div>
                             <div class="card-body">
@@ -29,7 +29,7 @@
                                     </div>
 
                                     <div class="text-end">
-                                        <button type="submit" class="btn btn-success">Upload</button>
+                                        <button type="submit" class="btn "   style="background-color:green !important;color:white   !important"     >Upload</button>
                                     </div>
                                 </form>
                             </div>

@@ -12,4 +12,5 @@ class CropDiseaseSubType extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+    
 }

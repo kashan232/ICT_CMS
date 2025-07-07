@@ -5,25 +5,40 @@
     <div class="content-page">
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card shadow-sm border-0 rounded-3">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0">Crop Category</h5>
+              <div class="row">
+                
+                    <div class="col-md-12 mt-5">
+                         
+                            
+                            <div class="card-body">
+  
+                            <div class="row ">
+     <div class="col-lg-6       ">
+ <h5 class="mb-0">Add Category</h5>
+                                    </div>
+                                    <div class="col-lg-6       ">
+    <div class="card-header text-white d-flex justify-content-end">
+    <a href="{{ route('new.category.uploads') }}" class="btn " style="background-color:green !important;color:white   !important">
+        Add Category
+    </a>
+</div>
+                                    </div>
                             </div>
+                        <div class="card shadow-sm border-0 rounded-3 mt-2">
+                          
                             <div class="card-body">
                                 @if (session()->has('success'))
                                 <div class="alert alert-success">
                                     <strong>Success!</strong> {{ session('success') }}.
                                 </div>
                                 @endif
-                                 <table id="userTable" class="table">
+                                 <table id="userTable" class="table ">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Image</th>
-                                        <th>Action</th> <!-- New column -->
+                                    <tr style="background-color:green;color:white   !important">
+                                        <th class="text-white">#</th>
+                                        <th class="text-white">Name</th>
+                                        <th class="text-white">Image</th>
+                                        <th class="text-white">Action</th> <!-- New column -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,7 +50,7 @@
                                             <img src="{{ env('APP_URL') . 'public/categories/' . $category->category_image }}" width="60" alt="Cover">
                                         </td>
                                         <td>
-                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm "  style="background-color:green;color:white   !important">Edit</a>
                                         </td>
                                     </tr>
                                     @endforeach
