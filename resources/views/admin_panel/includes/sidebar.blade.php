@@ -120,7 +120,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="side-nav-link text-dark">
-                        <i class="uil-home-alt"></i>
+                      <i class="fa-solid fa-right-from-bracket"></i>
                         <span> Logout </span>
                     </a>
                 </form>

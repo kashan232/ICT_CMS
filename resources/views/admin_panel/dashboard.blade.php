@@ -29,153 +29,71 @@
                     </div>
                 </div>
 
-                <div class="row g-3"> {{-- Use g-3 for consistent guttering --}}
+    <style>
+    .dashboard-card {
+        height: 120px; /* Fixed height */
+        padding: 12px 15px !important;
+    }
+    .dashboard-card .card-body {
+        padding: 0 !important;
+    }
+    .dashboard-card h3 {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+    .dashboard-card h5 {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    .dashboard-card p {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+</style>
 
-                    <div class="col-xl-4 col-md-6  col-sm-12"> {{-- Responsive columns --}}
-                     <a href="{{ route('Crops') }}" class="link">
-                           <div class="card shadow-md border-0 h-100"> {{-- Add shadow, remove border, make cards same height --}}
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-md rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center fs-3">
-                                            <i class="fas fa-seedling"></i> {{-- Icon for crops --}}
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total Crops">Total Crops</h5>
-                                        <h3 class="mt-3 mb-3 fw-bold">{{ $totalCrops ?? 0 }}</h3> {{-- Display count, use ?? 0 for safety --}}
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Number of crops in the database.</span>
-                                        </p>
-                                    </div>
-                                </div>
+<div class="row g-2">
+
+    {{-- List of data to display --}}
+@php
+    $items = [
+        ['route' => 'Crops', 'icon' => 'fas fa-leaf', 'bg' => 'bg-success-subtle text-success', 'label' => 'Total Crops', 'count' => $totalCrops ?? 0],
+        ['route' => 'categories-list', 'icon' => 'fas fa-layer-group', 'bg' => 'bg-primary-subtle text-primary', 'label' => 'Crop Categories', 'count' => $totalCropCategories ?? 0],
+        ['route' => 'crops-Diseases', 'icon' => 'fas fa-bacteria', 'bg' => 'bg-warning-subtle text-warning', 'label' => 'Disease Types', 'count' => $totalCropDiseaseTypes ?? 0],
+        ['route' => 'crops-Diseases-subtypes', 'icon' => 'fas fa-disease', 'bg' => 'bg-danger-subtle text-danger', 'label' => 'Disease Sub Types', 'count' => $totalCropDiseaseSubTypes ?? 0],
+        ['route' => 'crops-management', 'icon' => 'fas fa-tools', 'bg' => 'bg-info-subtle text-info', 'label' => 'Crop Managements', 'count' => $totalCropManagements ?? 0],
+        ['route' => 'uploads', 'icon' => 'fas fa-file-lines', 'bg' => 'bg-success-subtle  text-white ', 'label' => 'Total PDFs', 'count' => $totalPDFs ?? 0],
+        ['route' => 'uploads', 'icon' => 'fas fa-map', 'bg' => 'bg-success-subtle text-success', 'label' => 'Field Guides', 'count' => $fieldGuides ?? 0],
+        ['route' => 'uploads', 'icon' => 'fas fa-book', 'bg' => 'bg-primary-subtle text-primary', 'label' => 'Booklets', 'count' => $booklets ?? 0],
+        ['route' => 'uploads', 'icon' => 'fas fa-newspaper', 'bg' => 'bg-warning-subtle text-warning', 'label' => 'Publications', 'count' => $publications ?? 0],
+        ['route' => 'uploads', 'icon' => 'fas fa-book-open-reader', 'bg' => 'bg-danger-subtle text-danger', 'label' => 'Magazines', 'count' => $magazines ?? 0],
+    ];
+@endphp
+
+
+    @foreach ($items as $item)
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+            <a href="{{ route($item['route']) }}" class="link">
+                <div class="card shadow-sm border-0 dashboard-card">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="flex-shrink-0 me-3">
+                            <div class="avatar-md rounded-circle {{ $item['bg'] }} d-flex align-items-center justify-content-center fs-4 ">
+                                <i class="{{ $item['icon'] }}"></i>
                             </div>
                         </div>
-                     </a>
-                    </div>
-
-                    <div class="col-xl-4 col-md-6  col-sm-12">
-                     <a href="{{route('categories-list') }}" class="link">
-
-                        <div class="card shadow-md border-0 h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-md rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center fs-3">
-                                            <i class="fas fa-folder-open"></i> {{-- Icon for categories --}}
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total Crop Categories">Total Crop Categories</h5>
-                                        <h3 class="mt-3 mb-3 fw-bold">{{ $totalCropCategories ?? 0 }}</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Different categories of crops.</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="flex-grow-1">
+                            <h5 class="text-muted fw-normal text-truncate" title="{{ $item['label'] }}">{{ $item['label'] }}</h5>
+                            <h3 class="fw-bold">{{ $item['count'] }}</h3>
+                            <p class="text-muted">View Details</p>
                         </div>
-</a>
-                    </div>
-
-                    <div class="col-xl-4 col-md-6  col-sm-12">
-                     <a href="{{ route('crops-Diseases') }}" class="link">
-
-                        <div class="card shadow-md border-0 h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-md rounded-circle bg-warning-subtle text-warning d-flex align-items-center justify-content-center fs-3">
-                                            <i class="fas fa-bug"></i> {{-- Icon for disease types --}}
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total Crop Disease Types">Total Disease Types</h5>
-                                        <h3 class="mt-3 mb-3 fw-bold">{{ $totalCropDiseaseTypes ?? 0 }}</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Main types of crop diseases.</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-</a>
-                    </div>
-
-                    <div class="col-xl-4 col-md-6  col-sm-12">
-                     <a href="{{ route('crops-Diseases-subtypes') }}" class="link">
-
-                        <div class="card shadow-md border-0 h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-md rounded-circle bg-danger-subtle text-danger d-flex align-items-center justify-content-center fs-3">
-                                            <i class="fas fa-viruses"></i> {{-- Icon for disease sub-types --}}
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total Crop Disease Sub Types">Total Disease Sub Types</h5>
-                                        <h3 class="mt-3 mb-3 fw-bold">{{ $totalCropDiseaseSubTypes ?? 0 }}</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Specific sub-types of crop diseases.</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-</a>
-                    </div>
-
-                    <div class="col-xl-4 col-md-6  col-sm-12">
-                     <a href="{{ route('crops-management') }}" class="link">
-
-                        <div class="card shadow-md border-0 h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-3">
-                                        <div class="avatar-md rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center fs-3">
-                                            <i class="fas fa-hand-holding-heart"></i> {{-- Icon for management --}}
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total Crop Managements">Total Crop Managements</h5>
-                                        <h3 class="mt-3 mb-3 fw-bold">{{ $totalCropManagements ?? 0 }}</h3>
-                                        <p class="mb-0 text-muted">
-                                            <span class="text-nowrap">Records of crop management practices.</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-</a>
-                    </div>
-   <div class="col-xl-4 col-md-6  col-sm-12"> {{-- Responsive columns --}}
-                     <a href="{{  route('uploads') }}" class="link">
-
-    <div class="card shadow-md border-0 h-100"> {{-- Card with shadow, no border --}}
-        <div class="card-body">
-            <div class="d-flex align-items-center">
-                <div class="flex-shrink-0 me-3">
-  <div class="avatar-md rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center fs-3">
-                        <i class="fas fa-file-pdf"></i> {{-- Icon for PDFs --}}
                     </div>
                 </div>
-                <div class="flex-grow-1">
-                    <h5 class="text-muted fw-normal mt-0 text-truncate" title="Total PDFs">Total PDFs</h5>
-                    <h3 class="mt-3 mb-3 fw-bold">{{ $totalPDFs ?? 0 }}</h3>
-                    <p class="mb-0 text-muted">
-                        <span class="text-nowrap">Uploaded crop-related PDF files.</span>
-                    </p>
-                </div>
-            </div>
+            </a>
         </div>
-    </div>
-</a>
+    @endforeach
+
 </div>
 
 
-    
-                </div>
  
         </div>
     </div>
