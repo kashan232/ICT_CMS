@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// ICT CMS DOnes
 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
