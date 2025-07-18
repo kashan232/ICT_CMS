@@ -22,7 +22,34 @@
 .side-nav .menuitem-active .menuitem-active .active {
     color:green !important
 }
-</style>    
+
+</style>  
+<style>
+.leftside-menu {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Optional smooth scrollbar look */
+.leftside-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.leftside-menu::-webkit-scrollbar-thumb {
+    background-color: green;
+    border-radius: 5px;
+}
+.logo {
+    position: relative;
+    z-index: 99;
+}
+
+.side-nav li, .side-nav {
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+
 <div class="leftside-menu bg-white text-dark">
     <a href="#" class="logo logo-light bg-white ">
         <span class="logo-lg mt-2 mb-4">
@@ -58,7 +85,7 @@
             <li class="side-nav-item {{ Request::routeIs('new.uploads', 'uploads') ? 'active-parent' : '' }}">
                 <a data-bs-toggle="collapse" href="#pdfsidebar" aria-expanded="{{ Request::routeIs('new.uploads', 'uploads') ? 'true' : 'false' }}" aria-controls="pdfsidebar" class="side-nav-link text-dark   ">
                     <i class="uil-store"></i>
-                    <span> Upload PDFs </span>
+                    <span>PDFs Upload  </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse {{ Request::routeIs('new.uploads', 'uploads') ? 'show' : '' }}" id="pdfsidebar">
@@ -68,6 +95,23 @@
                         </li>
                         <li>
                             <a href="{{ route('uploads') }}" class="{{ Request::routeIs('uploads') ? 'active-link' : '' }} text-dark    ">Uploads</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+               <li class="side-nav-item {{ Request::routeIs('news.create', 'news.index') ? 'active-parent' : '' }}">
+                <a data-bs-toggle="collapse" href="#newssidebar" aria-expanded="{{ Request::routeIs('news.create', 'news.index') ? 'true' : 'false' }}" aria-controls="pdfsidebar" class="side-nav-link text-dark   ">
+                    <i class="uil-store"></i>
+                    <span>News Upload </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse {{ Request::routeIs('news.create', 'news.index') ? 'show' : '' }}" id="newssidebar">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('news.create') }}" class="  {{ Request::routeIs('news.create') ? 'active-link' : '' }}  text-dark">News Uploads</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('news.index') }}" class="{{ Request::routeIs('news.index') ? 'active-link' : '' }} text-dark    ">Uploads</a>
                         </li>
                     </ul>
                 </div>
@@ -116,6 +160,50 @@
                     </ul>
                 </div>
             </li>
+                 <li class="side-nav-item {{ Request::routeIs("departments.index",'allbanner.index','upcomingtenders.index','documents.index','director-general.index','district.index','headline.index','extension.index','banners.index','videos.index','subcenter.index') ? 'active-parent' : '' }}">
+                <a data-bs-toggle="collapse" href="#dynamic" aria-expanded="{{ Request::routeIs('news.create','allbanner.index','upcomingtenders.index','documents.index','district.index','director-general.index','headline.index','extension.index','subcenter.index','videos.index', 'news.index') ? 'true' : 'false' }}" aria-controls="pdfsidebar" class="side-nav-link text-dark   ">
+                    <i class="uil-store"></i>
+                    <span>Web dynamic</span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse {{ Request::routeIs('departments.index','allbanner.index','documents.index','upcomingtenders.index','director-general.index','headline.index','district.index','extension.index','videos.index','banners.index','subcenter.index') ? 'show' : '' }}" id="dynamic">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('departments.index') }}" class="  {{ Request::routeIs('departments.index') ? 'active-link' : '' }}  text-dark">Header</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('banners.index') }}" class="{{ Request::routeIs('banners.index') ? 'active-link' : '' }} text-dark    ">home Banner</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('allbanner.index') }}" class="{{ Request::routeIs('allbanner.index') ? 'active-link' : '' }} text-dark    ">All Banners</a>
+                        </li>
+                           <li>
+                            <a href="{{ route('videos.index') }}" class="{{ Request::routeIs('videos.index') ? 'active-link' : '' }} text-dark    ">Videos</a>
+                        </li>
+                         <li>
+                            <a href="{{ route('subcenter.index') }}" class="{{ Request::routeIs('subcenter.index') ? 'active-link' : '' }} text-dark    ">Subcenter</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('headline.index') }}" class="{{ Request::routeIs('headline.index') ? 'active-link' : '' }} text-dark    ">Headlines</a>
+                        </li>
+                          <li>
+                            <a href="{{ route('extension.index') }}" class="{{ Request::routeIs('extension.index') ? 'active-link' : '' }} text-dark    ">Extension About</a>
+                        </li>
+                          <li>
+                            <a href="{{ route('director-general.index') }}" class="{{ Request::routeIs('director-general.index') ? 'active-link' : '' }} text-dark    ">Director about</a>
+                        </li>
+                           <li>
+                            <a href="{{ route('district.index') }}" class="{{ Request::routeIs('district.index') ? 'active-link' : '' }} text-dark    ">District Offices</a>
+                        </li>
+                              <li>
+                            <a href="{{ route('documents.index') }}" class="{{ Request::routeIs('documents.index') ? 'active-link' : '' }} text-dark    ">Projects</a>
+                        </li>
+                          <li>
+                            <a href="{{ route('upcomingtenders.index') }}" class="{{ Request::routeIs('upcomingtenders.index') ? 'active-link' : '' }} text-dark    ">upcoming Tenders</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="side-nav-item">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -129,3 +217,4 @@
         <div class="clearfix"></div>
     </div>
 </div>
+

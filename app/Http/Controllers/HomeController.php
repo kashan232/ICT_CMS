@@ -8,6 +8,8 @@ use App\Models\CropDiseaseSubType;
 use App\Models\CropDiseaseType;
 use App\Models\CropManagement;
 use App\Models\PDF;
+use App\Models\News;
+use App\Models\Contact;
 class HomeController extends Controller // Assuming this is your AdminController
 {
   public function index()
@@ -23,11 +25,13 @@ class HomeController extends Controller // Assuming this is your AdminController
             } else if ($usertype == 'admin') {
                 // Fetch total counts for admin dashboard
                 $totalCrops = Crop::count();
+                $totalNews = News::count();
                 $totalCropCategories = CropCategory::count();
                 $totalCropDiseaseSubTypes = CropDiseaseSubType::count();
                 $totalCropDiseaseTypes = CropDiseaseType::count();
                 $totalCropManagements = CropManagement::count();
                 $totalPDFs = PDF::count();
+                $Contact = Contact::count();
 
                 // Specific PDF type counts
                 $fieldGuides = PDF::where('pdf_type', 'Field Guide')->count();
@@ -47,6 +51,8 @@ class HomeController extends Controller // Assuming this is your AdminController
                     'booklets' => $booklets,
                     'publications' => $publications,
                     'magazines' => $magazines,
+                        'totalNews' => $totalNews, // ✅ added
+                        'Contact' => $Contact, // ✅ added
                 ]);
             } else {
                 return redirect()->back();

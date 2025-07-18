@@ -3,8 +3,21 @@
 use App\Http\Controllers\CropController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\SubcenterController;
+use App\Http\Controllers\HeadlinesController;
+use App\Http\Controllers\ExtensionController;
+use App\Http\Controllers\DirectorGeneralController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DistrictOfficeController;
+use App\Http\Controllers\ProjectDocumentController;
+use App\Http\Controllers\UpcomingTenderController;
+use App\Http\Controllers\AllBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,10 +79,116 @@ Route::get('/crops-Diseases-subtypes', [CropController::class, 'crops_Diseases_s
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+// news section 
+
+
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/edit/{news}', [NewsController::class, 'edit'])->name('news.edit');
+Route::post('/news/update/{news}', [NewsController::class, 'update'])->name('news.update');
+Route::get('/news/delete/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
+Route::get('/news/download/{news}', [NewsController::class, 'downloadPdf'])->name('news.download');
+
+
+
+Route::get('/banners', [BannerController::class, 'index'])->name('banners.index');
+Route::get('/banners/create', [BannerController::class, 'create'])->name('banners.create');
+Route::post('/banners/store', [BannerController::class, 'store'])->name('banners.store');
+Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('banners.edit');
+Route::post('/banners/{id}/update', [BannerController::class, 'update'])->name('banners.update');
+Route::get('/banners/{id}/delete', [BannerController::class, 'delete'])->name('banners.delete');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/departments', [DepartmentController::class, 'index'])->name('departments.index');
+Route::get('/departments/create', [DepartmentController::class, 'create'])->name('departments.create');
+Route::post('/departments/store', [DepartmentController::class, 'store'])->name('departments.store');
+Route::get('/departments/{id}/edit', [DepartmentController::class, 'edit'])->name('departments.edit');
+Route::post('/departments/{id}/update', [DepartmentController::class, 'update'])->name('departments.update');
+Route::get('/departments/{id}/delete', [DepartmentController::class, 'delete'])->name('departments.delete');
+
+Route::get('/videos', [VideoController::class, 'index'])->name('videos.index');
+Route::get('/videos/create', [VideoController::class, 'create'])->name('videos.create');
+Route::post('/videos/store', [VideoController::class, 'store'])->name('videos.store');
+Route::get('/videos/{id}/edit', [VideoController::class, 'edit'])->name('videos.edit');
+Route::post('/videos/{id}/update', [VideoController::class, 'update'])->name('videos.update');
+Route::get('/videos/{id}/delete', [VideoController::class, 'delete'])->name('videos.delete');
+
+Route::get('/subcenter', [SubcenterController::class, 'index'])->name('subcenter.index');
+Route::get('/subcenter/create', [SubcenterController::class, 'create'])->name('subcenter.create');
+Route::post('/subcenter/store', [SubcenterController::class, 'store'])->name('subcenter.store');
+Route::get('/subcenter/edit/{id}', [SubcenterController::class, 'edit'])->name('subcenter.edit');
+Route::post('/subcenter/update/{id}', [SubcenterController::class, 'update'])->name('subcenter.update');
+Route::get('/subcenter/delete/{id}', [SubcenterController::class, 'delete'])->name('subcenter.delete');
+
+
+
+Route::get('/headline', [HeadlinesController::class, 'index'])->name('headline.index');
+Route::get('/headline/create', [HeadlinesController::class, 'create'])->name('headline.create');
+Route::post('/headline/store', [HeadlinesController::class, 'store'])->name('headline.store');
+Route::get('/headline/edit/{id}', [HeadlinesController::class, 'edit'])->name('headline.edit');
+Route::post('/headline/update/{id}', [HeadlinesController::class, 'update'])->name('headline.update');
+Route::get('/headline/delete/{id}', [HeadlinesController::class, 'delete'])->name('headline.delete');
+
+
+
+Route::get('/extension', [ExtensionController::class, 'index'])->name("extension.index");
+Route::get('/extension/create', [ExtensionController::class, 'create'])->name("extension.create");
+Route::post('/extension/store', [ExtensionController::class, 'store'])->name("extension.store");
+Route::get('/extension/edit/{id}', [ExtensionController::class, 'edit'])->name("extension.edit");
+Route::post('/extension/update/{id}', [ExtensionController::class, 'update'])->name("extension.update");
+Route::get('/extension/delete/{id}', [ExtensionController::class, 'delete'])->name("extension.delete");
+
+
+Route::get('/director-general', [DirectorGeneralController::class, 'index'])->name('director-general.index');
+Route::get('/director-general/create', [DirectorGeneralController::class, 'create'])->name('director-general.create');
+Route::post('/director-general/store', [DirectorGeneralController::class, 'store'])->name('director-general.store');
+Route::get('/director-general/{id}/edit', [DirectorGeneralController::class, 'edit'])->name('director-general.edit');
+Route::post('/director-general/update', [DirectorGeneralController::class, 'update'])->name('director-general.update');
+Route::get('/director-general/{id}/delete', [DirectorGeneralController::class, 'destroy'])->name('director-general.destroy');
+
+route::get('contact',[ContactController::Class,'index'])->name('contact.index');
+Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.delete');
+
+Route::get('/d-general', function () {
+    return view('admin_panel.director.create');
+});
+
+Route::get('/district', [DistrictOfficeController::class, 'index'])->name('district.index');
+Route::get('/district/create', [DistrictOfficeController::class, 'create'])->name('district.create');
+Route::post('/district/store', [DistrictOfficeController::class, 'store'])->name('district.store');
+Route::get('/district/{id}/edit', [DistrictOfficeController::class, 'edit'])->name('district.edit');
+Route::post('/district/update', [DistrictOfficeController::class, 'update'])->name('district.update');
+Route::delete('/district/{id}/delete', [DistrictOfficeController::class, 'destroy'])->name('district.destroy');
+
+
+Route::get('/documents', [ProjectDocumentController::class, 'index'])->name('documents.index');
+Route::get('/documents/create', [ProjectDocumentController::class, 'create'])->name('documents.create');
+Route::post('/documents', [ProjectDocumentController::class, 'store'])->name('documents.store');
+Route::get('/documents/{id}/edit', [ProjectDocumentController::class, 'edit'])->name('documents.edit');
+Route::put('/documents/{id}', [ProjectDocumentController::class, 'update'])->name('documents.update');
+Route::delete('/documents/{id}', [ProjectDocumentController::class, 'destroy'])->name('documents.destroy');
+
+
+Route::get('/upcomingtenders', [UpcomingTenderController::class, 'index'])->name('upcomingtenders.index');
+Route::get('/upcomingtenders/create', [UpcomingTenderController::class, 'create'])->name('upcomingtenders.create');
+Route::post('/upcomingtenders', [UpcomingTenderController::class, 'store'])->name('upcomingtenders.store');
+Route::get('/upcomingtenders/{id}/edit', [UpcomingTenderController::class, 'edit'])->name('upcomingtenders.edit');
+Route::put('/upcomingtenders/{id}', [UpcomingTenderController::class, 'update'])->name('upcomingtenders.update');
+Route::delete('/upcomingtenders/{id}', [UpcomingTenderController::class, 'destroy'])->name('upcomingtenders.destroy');
+
+
+
+Route::get('/allbanner', [AllBannerController::class, 'index'])->name('allbanner.index');
+Route::get('/allbanner/create', [AllBannerController::class, 'create'])->name('allbanner.create');
+Route::post('/allbanner/store', [AllBannerController::class, 'store'])->name('allbanner.store');
+Route::get('/allbanner/edit/{id}', [AllBannerController::class, 'edit'])->name('allbanner.edit');
+Route::post('/allbanner/update/{id}', [AllBannerController::class, 'update'])->name('allbanner.update');
+Route::get('/allbanner/delete/{id}', [AllBannerController::class, 'destroy'])->name('allbanner.delete');
 
 require __DIR__ . '/auth.php';

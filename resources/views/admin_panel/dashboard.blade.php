@@ -66,8 +66,11 @@
         ['route' => 'uploads', 'icon' => 'fas fa-book', 'bg' => 'bg-primary-subtle text-primary', 'label' => 'Booklets', 'count' => $booklets ?? 0],
         ['route' => 'uploads', 'icon' => 'fas fa-newspaper', 'bg' => 'bg-warning-subtle text-warning', 'label' => 'Publications', 'count' => $publications ?? 0],
         ['route' => 'uploads', 'icon' => 'fas fa-book-open-reader', 'bg' => 'bg-danger-subtle text-danger', 'label' => 'Magazines', 'count' => $magazines ?? 0],
+        ['route' => 'news.index', 'icon' => 'fas fa-newspaper', 'bg' => 'bg-info-subtle text-info', 'label' => 'Total News', 'count' => $totalNews ?? 0], // ✅ Added
+        ['route' => 'contact.index', 'icon' => 'fas fa-newspaper', 'bg' => 'bg-info-subtle text-info', 'label' => 'Total Messages', 'count' => $Contact  ?? 0], // ✅ Added
     ];
 @endphp
+
 
 
     @foreach ($items as $item)
@@ -92,9 +95,6 @@
     @endforeach
 
 </div>
-
-
- 
         </div>
     </div>
     @include('admin_panel.includes.footer')

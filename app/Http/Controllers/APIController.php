@@ -3,11 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Crop;
+use App\Models\News;
 use App\Models\CropCategory;
 use App\Models\CropDiseaseSubType;
 use App\Models\CropDiseaseType;
 use App\Models\CropManagement;
 use App\Models\PDF;
+use App\Models\Department;
+use App\Models\Banner;
+use App\Models\Video;
+use App\Models\Subcenter;
+use App\Models\Extension;
+use App\Models\DirectorGeneral;
+use App\Models\Headlines;
+use App\Models\Contact;
+use App\Models\DistrictOffice;
+use App\Models\UpcomingTender;
+use App\Models\ProjectDocument;
+use App\Models\AllBanner;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -170,4 +184,258 @@ class APIController extends Controller
             'data' => $subTypes
         ]);
     }
+
+     public function news()
+    {
+        $news = News::all();
+
+        if ($news->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No news records found.',
+                'data' => []
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'news fetched successfully.',
+                'data' => $news
+            ]);
+        }
+    }
+         public function header()
+    {
+        $header = Department::all();
+
+        if ($header->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No header records found.',
+                'data' => []
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'header fetched successfully.',
+                'data' => $header
+            ]);
+        }
+    }
+          public function banner()
+    {
+        $banner = Banner::all();
+
+        if ($banner->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No banner records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'banner fetched successfully.',
+                'data' => $banner
+            ]);
+        }
+    }
+      public function video()
+    {
+        $video = Video::all();
+
+        if ($video->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No video records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'video fetched successfully.',
+                'data' => $video
+            ]);
+        }
+    }
+
+        public function subcenter()
+    {
+        $subcenter = Subcenter::all();
+
+        if ($subcenter->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No subcenter records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'subcenter fetched successfully.',
+                'data' => $subcenter
+            ]);
+        }
+    }
+
+    public function extension(){
+         $extension = Extension::all();
+
+        if ($extension->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No extension records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'extension fetched successfully.',
+                'data' => $extension
+            ]);
+        }
+    }
+
+    function director(){
+         $DirectorGeneral = DirectorGeneral::all();
+
+        if ($DirectorGeneral->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No DirectorGeneral records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'DirectorGeneral fetched successfully.',
+                'data' => $DirectorGeneral
+            ]);
+        }
+    }
+
+    function headlines(){
+            $Headlines = Headlines::all();
+
+        if ($Headlines->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No Headlines records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Headlines fetched successfully.',
+                'data' => $Headlines
+            ]);
+        }
+    }
+
+    function contact(){
+         $Contact = Contact::all();
+
+        if ($Contact->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No Contact records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Contact fetched successfully.',
+                'data' => $Contact
+            ]);
+        }
+    }
+
+    
+    function district(){
+         $DistrictOffice = DistrictOffice::all();
+
+        if ($DistrictOffice->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No DistrictOffice records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'DistrictOffice fetched successfully.',
+                'data' => $DistrictOffice
+            ]);
+        }
+    }
+  
+    function UpcomingTender(){
+         $UpcomingTender = UpcomingTender::all();
+
+        if ($UpcomingTender->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No UpcomingTender records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'UpcomingTender fetched successfully.',
+                'data' => $UpcomingTender
+            ]);
+        }
+    }
+
+        function ProjectDocument(){
+         $ProjectDocument = ProjectDocument::all();
+
+        if ($ProjectDocument->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No ProjectDocument records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'ProjectDocument fetched successfully.',
+                'data' => $ProjectDocument
+            ]);
+        }
+    }
+
+    
+        function allbanner(){
+         $AllBanner = AllBanner::all();
+
+        if ($AllBanner->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No AllBanner records found.',
+                'data' => ['sadass']
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'AllBanner fetched successfully.',
+                'data' => $AllBanner
+            ]);
+        }
+    }
+    // store contact information
+       public function store(Request $request){
+    $validated = $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|email',
+        'phone' => 'nullable|string',
+        'comments' => 'required|string',
+    ]);
+
+    // Save to database
+    Contact::create($validated);
+
+    return response()->json(['status' => 'success', 'message' => 'Submitted Successfully']);
+}
+
+
 }

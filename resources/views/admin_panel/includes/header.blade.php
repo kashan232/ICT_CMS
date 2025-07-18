@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <!-- <link rel="stylesheet" href="{{ env('APP_URL') }}public/assets/css/datatables.bootstrap5.css" /> -->
     <link rel="stylesheet" href="{{ env('APP_URL') }}public/assets/css/responsive.bootstrap5.css" />
-    <link rel="stylesheet" href="{{ env('APP_URL') }}public/assets/css/datatables.c    heckboxes.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}public/assets/css/datatables.checkboxes.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -35,24 +35,24 @@
       margin: 0;
       height: 100vh;
       font-family: Arial, sans-serif;
-      overflow: hidden; /* Prevent scroll while loading */
+      /* overflow: hidden; Prevent scroll while loading */
     }
 
     /* LOADER STYLES */
     #loader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(63, 73, 63, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease-out; /* ✅ Fixed here */
-  opacity: 1;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(63, 73, 63, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out; /* ✅ Fixed here */
+      opacity: 1;
+    }
 
 
     .loader-container {
