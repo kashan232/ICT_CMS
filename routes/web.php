@@ -29,6 +29,7 @@ use App\Http\Controllers\AllBannerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// ICT CMS DOnes
 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
