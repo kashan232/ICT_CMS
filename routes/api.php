@@ -32,7 +32,7 @@ Route::get('/director',[APIController::class, 'director'])->name('director');
 Route::get('/headlines',[APIController::class, 'headlines'])->name('headlines');
 
 
-// contact ict website information store
+// contact ict sawebsite information store
 
 Route::post('/contact/store', [APIController::class, 'store']);
 Route::get('/contact/info', [APIController::class, 'contact']);
