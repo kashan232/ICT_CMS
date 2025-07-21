@@ -65,3 +65,4 @@
     @include('admin_panel.includes.footer')
 </div>
 @include('admin_panel.includes.footer_links')
+{{-- end --}}
