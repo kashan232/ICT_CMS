@@ -37,13 +37,18 @@
                                         @foreach($documents as $index => $item)
                                             <tr>
                                                 <td>{{ $index + 1 }}</td>
-                                                <td>{{ $item->document_title }}</td>
+                                            <td style="width: 200px;">
+    <div style="width: 200px; overflow-x: auto; white-space: nowrap;">
+        {{ $item->document_title }}
+    </div>
+</td>
+
                                                 <td>{{ $item->date }}</td>
                                                 <td>{{ $item->report_no }}</td>
                                                 <td>{{ $item->document_type }}</td>
                                                 <td>
                                                     @if($item->pdf_file)
-                                                        <a href="{{ asset('storage/' . $item->pdf_file) }}" target="_blank" class="btn btn-sm btn-primary">View PDF</a>
+                                                        <a href="{{ asset('storage/' . $item->pdf_file) }}" target="_blank" class="btn btn-sm btn-primary">View </a>
                                                     @else
                                                         <span class="text-muted">No PDF</span>
                                                     @endif
