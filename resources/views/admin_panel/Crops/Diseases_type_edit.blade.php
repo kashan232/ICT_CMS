@@ -83,7 +83,6 @@
                                         <button type="submit" class="btn "  style="background-color:green !important;color:white   !important">Save</button>
                                     </div>
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
                                     </div>
                                     <div class="col-lg-6       ">
     <div class="card-header text-white d-flex justify-content-end">
-    <a href="{{ route('Diseases-type-management') }}" class="btn " style="background-color:green !important;color:white   !important">
+    <a href="{{ route('Diseases-management') }}" class="btn " style="background-color:green !important;color:white   !important">
         Add Diseases Management
     </a>
 </div>
@@ -65,7 +65,6 @@
                                     </div>
                                 </div>
                                 @endif
-                            </div>
                         </div>
                     </div>
                 </div>

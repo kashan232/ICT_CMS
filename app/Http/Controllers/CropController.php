@@ -307,8 +307,8 @@ public function Crops_Management_store(Request $request)
         if (Auth::id()) {
             $userId = Auth::id();
             $categories = CropCategory::all();
-            $Crops = Crop::all();
-            return view('admin_panel.Crops.uploads_Diseases_management', compact('categories', 'Crops'));
+            $crops = Crop::all();
+            return view('admin_panel.Crops.uploads_Diseases_management',compact('categories','crops'));
         } else {
             return redirect()->back();
         }
@@ -410,7 +410,7 @@ public function Diseases_upload(Request $request)
             $userId = Auth::id();
             $categories = CropCategory::all();
             $Crops = Crop::all();
-            return view('admin_panel.Crops.Diseases_type_management', compact('categories', 'Crops'));
+            return view('admin_panel.Crops.Diseases_type_management', compact('categories','Crops'));
         } else {
             return redirect()->back();
         }

@@ -67,7 +67,6 @@
                                         <a href="{{ route('uploads') }}" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
             <div class="col-md-6 text-dark">
                 <script>
                     document.write(new Date().getFullYear())
-                </script><span> <a href="https://xcltechnologies.com/" class="link text-dark">© XCL TECHNOLOGIES</a></span>
+                </script><span> <a href="https://xcltechnologies.com/" class="link text-dark" target="_blank">© Powered By XCL TECHNOLOGIES</a></span>
             </div>
         </div>
     </div>

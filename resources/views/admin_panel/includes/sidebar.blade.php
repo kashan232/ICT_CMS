@@ -134,13 +134,13 @@
                     </ul>
                 </div>
             </li>
-            <li class="side-nav-item {{ Request::routeIs('new.Crops.uploads', 'Crops', 'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'active-parent' : '' }}">
-                <a data-bs-toggle="collapse" href="#Crops" aria-expanded="{{ Request::routeIs('new.Crops.uploads', 'Crops', 'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'true' : 'false' }}" aria-controls="Crops" class="side-nav-link text-dark">
+            <li class="side-nav-item {{ Request::routeIs('new.Crops.uploads', 'Crops', "Diseases-type-management",'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'active-parent' : '' }}">
+                <a data-bs-toggle="collapse" href="#Crops" aria-expanded="{{ Request::routeIs('new.Crops.uploads', "Diseases-type-management",'Crops', 'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'true' : 'false' }}" aria-controls="Crops" class="side-nav-link text-dark">
                     <i class="uil-store"></i>
                     <span> Crops </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse {{ Request::routeIs('new.Crops.uploads', 'Crops', 'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'show' : '' }}" id="Crops">
+                <div class="collapse {{ Request::routeIs('new.Crops.uploads', 'Crops',"Diseases-type-management", 'crops-management', 'crops-Diseases', 'crops-Diseases-subtypes') ? 'show' : '' }}" id="Crops">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{ route('new.Crops.uploads') }}" class="{{ Request::routeIs('new.Crops.uploads') ? 'active-link' : '' }} text-dark">New Crops</a>
@@ -155,8 +155,13 @@
                             <a href="{{ route('crops-Diseases') }}" class="{{ Request::routeIs('crops-Diseases') ? 'active-link' : '' }} text-dark">Diseases Managements</a>
                         </li>
                         <li>
-                            <a href="{{ route('crops-Diseases-subtypes') }}" class="{{ Request::routeIs('crops-Diseases-subtypes') ? 'active-link' : '' }} text-dark">Diseases Types</a>
+                            <a href="{{ route('crops-Diseases-subtypes') }}" class="{{ Request::routeIs('crops-Diseases-subtypes') ? 'active-link' : '' }} text-dark"> sub Diseases Types</a>
                         </li>
+
+                        {{-- checking --}}
+                        {{-- <li>
+                            <a href="{{ route('Diseases-type-management') }}" class="{{ Request::routeIs('Diseases-type-management') ? 'active-link' : '' }} text-dark">Diseases Types</a>
+                        </li> --}}
                     </ul>
                 </div>
             </li>
