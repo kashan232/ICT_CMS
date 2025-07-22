@@ -29,8 +29,9 @@ use App\Http\Controllers\AllBannerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// ICT CMS DOnes
-
+// ICT CMS DOnes fardeee
+// fardeen 
+// 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
 
 // Route::get('/adminpage', [HomeController::class, 'adminpage'])->middleware(['auth','admin'])->name('adminpage');
