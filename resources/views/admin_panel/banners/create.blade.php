@@ -20,7 +20,7 @@
                                     </div>
                                 @endif
 
-                                <form action="{{ route('banners.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('banners.store') }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
                                     @csrf
 
                                     <div class="mb-3">
@@ -55,3 +55,10 @@
     </div>
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>

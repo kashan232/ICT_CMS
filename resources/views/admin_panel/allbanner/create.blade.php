@@ -15,7 +15,7 @@
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
-                        <form method="POST" action="{{ route('allbanner.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('allbanner.store') }}" enctype="multipart/form-data" onsubmit="disableButton(this)"    >
                             @csrf
                             <div class="mb-3">
                                 <label>Heading</label>

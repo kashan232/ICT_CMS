@@ -10,7 +10,7 @@
 <div class="card shadow-sm">
 <div class="card-header" style="background-color:green;color:white;"><h5>Add Department</h5></div>
 <div class="card-body">
-<form action="{{ route('departments.store') }}" method="POST">@csrf
+<form action="{{ route('departments.store') }}" method="POST" onsubmit="disableButton(this)">@csrf
 <div class="mb-3"><label>Name</label><input type="text" name="department_name" class="form-control" required></div>
 <div class="mb-3"><label>Location</label><input type="text" name="location" class="form-control" required></div>
 <div class="mb-3"><label>Email</label><input type="text" name="email" class="form-control" required></div>
@@ -22,3 +22,10 @@
 @include('admin_panel.includes.footer')
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>

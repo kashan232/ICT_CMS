@@ -70,7 +70,6 @@
                 </div>
             </div>
         </div>
-    </div>
     @include('admin_panel.includes.footer')
 </div>
 </div>

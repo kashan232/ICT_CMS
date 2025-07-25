@@ -21,7 +21,7 @@
                                 </div>
                                 @endif
 
-                                    <form action="{{ route('Crops.Management.upload') }}" method="POST" enctype="multipart/form-data" id="managementForm">
+                                    <form action="{{ route('Crops.Management.upload') }}" method="POST" enctype="multipart/form-data" id="managementForm" onsubmit="disableButton(this)">
                                         @csrf
                                         @method('POST')
                                         @foreach($managementDetails as $cat)
@@ -94,7 +94,13 @@
 @include('admin_panel.includes.footer_links')
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
 <script>
   let count = {{ count($managementDetails) }};
 

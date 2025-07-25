@@ -17,7 +17,7 @@
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
-                        <form method="POST" action="{{ route('district.store') }}">
+                        <form method="POST" action="{{ route('district.store') }}" onsubmit="disableButton(this)">
                             @csrf
 
                           
@@ -63,3 +63,10 @@
     @include('admin_panel.includes.footer')
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>

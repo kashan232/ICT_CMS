@@ -17,7 +17,7 @@
                                     <strong>Success!</strong> {{ session('success') }}.
                                 </div>
                                 @endif
-                                <form action="{{ route('categories.update', $categories->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('categories.update', $categories->id) }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
                                    @csrf
                                     @method('PUT')
                                     <div class="mb-3">
@@ -51,3 +51,10 @@
 </div>
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
