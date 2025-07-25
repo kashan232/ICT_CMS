@@ -43,7 +43,7 @@
                                         <!-- Dynamic management sections will be appended here -->
                                     </div>
 
-                                    <button type="button" class="btn btn-sm btn-outline-success mb-3" id="addSectionBtn">Add Management Section</button>
+                                    <button type="button" class="btn btn-sm  mb-3" id="addSectionBtn" style="background-color:green !important;color:white   !important">Add Management Section</button>
 
                                     <div class="text-end mt-4">
                                         <button type="submit" class="btn "  style="background-color:green !important;color:white   !important">Upload</button>

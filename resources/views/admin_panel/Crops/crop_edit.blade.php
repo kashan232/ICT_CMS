@@ -71,7 +71,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <button type="button" id="addMore" class="btn btn-sm btn-secondary">Add More</button>
+                                        <button type="button" id="addMore" class="btn btn-sm " style="background-color:green !important;color:white   !important">Add More</button>
                                     </div>
 
                                     <div class="text-end">

@@ -55,7 +55,7 @@
                                     </div>
 
                                     <div class="text-start mb-3">
-                                        <button type="button" id="addDiseaseType" class="btn " style="background:lightgray">Add More Disease Type</button>
+                                        <button type="button" id="addDiseaseType" class="btn text-white" style="background:green">Add More Disease Type</button>
                                     </div>
 
                                     <div class="text-end mt-4">

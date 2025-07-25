@@ -78,7 +78,7 @@
         @endforeach
 
                                     </div>
-                                    <button type="button" class="btn btn-secondary" id="addMoreSubDisease">+ Add More Sub Disease</button>
+                                    <button type="button" class="btn " id="addMoreSubDisease" style="background-color:green !important;color:white   !important">+ Add More Sub Disease</button>
                                     <div class="text-end mt-4">
                                         <button type="submit" class="btn "  style="background-color:green !important;color:white   !important">Save</button>
                                     </div>
