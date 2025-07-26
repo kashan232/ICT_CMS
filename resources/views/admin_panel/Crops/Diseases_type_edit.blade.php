@@ -20,7 +20,7 @@
                                     <strong>Success!</strong> {{ session('success') }}
                                 </div>
                                 @endif
-                                <form action="{{ route('crop.disease.subtypes.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('crop.disease.subtypes.store') }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
                                     @csrf
                                     <div class="mb-3">
                                         <label>Crop Category</label>
@@ -78,7 +78,7 @@
         @endforeach
 
                                     </div>
-                                    <button type="button" class="btn btn-secondary" id="addMoreSubDisease">+ Add More Sub Disease</button>
+                                    <button type="button" class="btn " id="addMoreSubDisease" style="background-color:green !important;color:white   !important">+ Add More Sub Disease</button>
                                     <div class="text-end mt-4">
                                         <button type="submit" class="btn "  style="background-color:green !important;color:white   !important">Save</button>
                                     </div>
@@ -96,7 +96,13 @@
 @include('admin_panel.includes.footer_links')
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
 <script>
     // Initialize CKEditor for all existing textareas with class
     document.querySelectorAll('.ckeditor-control').forEach((el) => {

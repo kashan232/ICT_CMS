@@ -21,7 +21,7 @@
                                     </div>
                                 @endif
 
-                                <form action="{{ route('Diseases.upload') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('Diseases.upload') }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)" >
                                     @csrf
 
                                     {{-- Category --}}
@@ -55,11 +55,11 @@
                                     </div>
 
                                     <div class="text-start mb-3">
-                                        <button type="button" id="addDiseaseType" class="btn " style="background:lightgray">Add More Disease Type</button>
+                                        <button type="button" id="addDiseaseType" class="btn text-white" style="background:green">Add More Disease Type</button>
                                     </div>
 
                                     <div class="text-end mt-4">
-                                        <button type="submit" class="btn" style="background-color:green !important;color:white !important">Save</button>
+                                        <button type="submit" class="btn submit" style="background-color:green !important;color:white !important">Save</button>
                                     </div>
                                 </form>
 
@@ -79,7 +79,13 @@
 {{-- Scripts --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
 <script>
     // Crop Load based on Category
     $(document).ready(function() {

@@ -18,7 +18,7 @@
                                 </div>
                                 @endif
 
-                                <form action="{{ route('Crops.update', $crop->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('Crops.update', $crop->id) }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
                                     @csrf
 
                                     <div class="mb-3">
@@ -71,7 +71,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <button type="button" id="addMore" class="btn btn-sm btn-secondary">Add More</button>
+                                        <button type="button" id="addMore" class="btn btn-sm " style="background-color:green !important;color:white   !important">Add More</button>
                                     </div>
 
                                     <div class="text-end">
@@ -88,6 +88,13 @@
     @include('admin_panel.includes.footer')
 </div>
 </div>
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
 @include('admin_panel.includes.footer_links')
 <script>
     document.getElementById('addMore').addEventListener('click', function() {

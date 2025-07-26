@@ -12,7 +12,7 @@
                             <h5 class="mb-0">Add Video</h5>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('videos.store') }}" method="POST">
+                            <form action="{{ route('videos.store') }}" method="POST" onsubmit="disableButton(this)">
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Video Title</label>
@@ -35,3 +35,10 @@
 @include('admin_panel.includes.footer')
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>

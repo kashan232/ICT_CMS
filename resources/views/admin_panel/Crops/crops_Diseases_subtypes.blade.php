@@ -24,12 +24,11 @@
 </div>
                                     </div>
                             </div>
-                                <div class="card mt-2">
+                               <div class="card mt-2">
                                     <div class="card-body table-responsive">
-                                        <!-- <h5 class="mt-2">Crop Disease Sub Types List</h5> -->
-                                        <table id="userTable" class="table ">
-                                            <thead class=" text-white"  style="background-color:green !important;color:white   !important">
-                                                <tr>
+                                        <table id="userTable" class="table">
+                                            <thead class=""  style="background-color:green !important;color:white   !important">
+                                                   <tr>
                                                     <th class="text-white">#</th>
                                                     <th class="text-white">Category</th>
                                                     <th class="text-white">Crop</th>

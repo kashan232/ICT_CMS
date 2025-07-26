@@ -20,7 +20,7 @@
                                     <strong>Success!</strong> {{ session('success') }}
                                 </div>
                                 @endif
-                                <form action="{{ route('Crops.Management.upload') }}" method="POST" enctype="multipart/form-data" id="managementForm" novalidate>
+                                <form action="{{ route('Crops.Management.upload') }}" method="POST" enctype="multipart/form-data" id="managementForm" novalidate onsubmit="disableButton(this)">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="categorySelect" class="form-label">Crop Category</label>
@@ -43,7 +43,7 @@
                                         <!-- Dynamic management sections will be appended here -->
                                     </div>
 
-                                    <button type="button" class="btn btn-sm btn-outline-success mb-3" id="addSectionBtn">Add Management Section</button>
+                                    <button type="button" class="btn btn-sm  mb-3" id="addSectionBtn" style="background-color:green !important;color:white   !important">Add Management Section</button>
 
                                     <div class="text-end mt-4">
                                         <button type="submit" class="btn "  style="background-color:green !important;color:white   !important">Upload</button>
@@ -60,7 +60,13 @@
 
     @include('admin_panel.includes.footer')
 </div>
-
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...'; // Optional: Change button text
+    }
+</script>
 @include('admin_panel.includes.footer_links')
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
