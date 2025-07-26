@@ -154,7 +154,7 @@ Route::get('/director-general/{id}/edit', [DirectorGeneralController::class, 'ed
 Route::post('/director-general/update', [DirectorGeneralController::class, 'update'])->name('director-general.update');
 Route::get('/director-general/{id}/delete', [DirectorGeneralController::class, 'destroy'])->name('director-general.destroy');
 
-// route::get('contact',[ContactController::Class,'index'])->name('contact.index');
+route::get('contact',[ContactController::Class,'index'])->name('contact.index');
 Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.delete');
 
 Route::get('/d-general', function () {
