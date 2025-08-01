@@ -20,6 +20,7 @@ class VideoController extends Controller
         $request->validate([
             'title' => 'required',
             'youtube_link' => 'required',
+            'description' => 'required',
         ]);
 
         Video::create($request->all());

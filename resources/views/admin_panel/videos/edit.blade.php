@@ -18,6 +18,10 @@
                                     <label class="form-label">Video Title</label>
                                     <input type="text" name="title" value="{{ $video->title }}" class="form-control" required>
                                 </div>
+                                                                      <div class="mb-3">
+                                    <label class="form-label">description</label>
+                                    <input type="text" name="description" class="form-control" value="{{ $video->description }}" required placeholder="description ">
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">YouTube Embed Link</label>
                                     <input type="text" name="youtube_link" value="{{ $video->youtube_link }}" class="form-control" required>

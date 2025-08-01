@@ -18,10 +18,15 @@
                                     <label class="form-label">Video Title</label>
                                     <input type="text" name="title" class="form-control" required>
                                 </div>
+                                                                      <div class="mb-3">
+                                    <label class="form-label">description</label>
+                                    <input type="text" name="description" class="form-control" required placeholder="description ">
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label">YouTube Embed Link</label>
                                     <input type="text" name="youtube_link" class="form-control" required placeholder="https://www.youtube.com/embed/xxxxxxx">
                                 </div>
+
                                 <div class="text-end">
                                     <button type="submit" class="btn" style="background-color:green; color:white;">Add Video</button>
                                     <a href="{{ route('videos.index') }}" class="btn btn-secondary">Cancel</a>

@@ -18,6 +18,7 @@ use App\Http\Controllers\DistrictOfficeController;
 use App\Http\Controllers\ProjectDocumentController;
 use App\Http\Controllers\UpcomingTenderController;
 use App\Http\Controllers\AllBannerController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -192,5 +193,14 @@ Route::post('/allbanner/store', [AllBannerController::class, 'store'])->name('al
 Route::get('/allbanner/edit/{id}', [AllBannerController::class, 'edit'])->name('allbanner.edit');
 Route::post('/allbanner/update/{id}', [AllBannerController::class, 'update'])->name('allbanner.update');
 Route::get('/allbanner/delete/{id}', [AllBannerController::class, 'destroy'])->name('allbanner.delete');
+
+
+    Route::get('gallery', [GalleryController::class, 'index'])->name('gallery.index');
+    Route::get('gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+    Route::post('gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+    Route::post('gallery/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+    Route::get('gallery/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
+
 
 require __DIR__ . '/auth.php';

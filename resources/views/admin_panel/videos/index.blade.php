@@ -36,7 +36,9 @@
                                                 <tr>
                                                     <th class="text-white">#</th>
                                                     <th class="text-white">Title</th>
+                                                    <th class="text-white">description</th>
                                                     <th class="text-white">YouTube Video</th>
+                                                    
                                                     <th class="text-white">Action</th>
                                                 </tr>
                                             </thead>
@@ -45,6 +47,7 @@
                                                 <tr>
                                                     <td>{{ $index + 1 }}</td>
                                                     <td>{{ $item->title }}</td>
+                                                    <td>{{ $item->description }}</td>
                                                     <td>
                                                         <iframe width="200" height="100" src="{{ $item->youtube_link }}" frameborder="0" allowfullscreen></iframe>
                                                     </td>

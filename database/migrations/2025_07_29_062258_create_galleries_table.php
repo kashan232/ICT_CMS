@@ -9,13 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up(): void
+  public function up()
 {
-    Schema::create('videos', function (Blueprint $table) {
+    Schema::create('galleries', function (Blueprint $table) {
         $table->id();
-        $table->string('title');
-        $table->string('youtube_link');
-        $table->string('description');
+        $table->string('employee_name');
+        $table->string('designation');
+        $table->string('image'); // image path store hoga
         $table->timestamps();
     });
 }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('galleries');
     }
 };

@@ -15,7 +15,9 @@
 <div class="mb-3"><label>Location</label><input type="text" name="location" class="form-control" required></div>
 <div class="mb-3"><label>Email</label><input type="text" name="email" class="form-control" required></div>
 <div class="mb-3"><label>Timing</label><input type="text" name="timing" class="form-control" required></div>
-<div class="mb-3"><label>Phone</label><input type="text" name="phone" class="form-control" required></div>
+<div class="mb-3"><label>Phone No 1</label><input type="text" name="phone" class="form-control" required></div>
+<div class="mb-3"><label>Phone No 2</label><input type="text" name="phoneno_two" class="form-control" required></div>
+<div class="mb-3"><label>Phone No 3</label><input type="text" name="phoneno_three" class="form-control" required></div>
 <button class="btn " style="background-color:green; color:white !important;">Add Department</button>
 </form>
 </div></div></div></div></div></div>    

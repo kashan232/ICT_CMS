@@ -39,7 +39,10 @@
                                                     <th class="text-white">Department</th>
                                                     <th class="text-white">Location</th>
                                                     <th class="text-white">Timing</th>
-                                                    <th class="text-white">Phone</th>
+                                                    <th class="text-white">Email</th>
+                                                    <th class="text-white">Phone No One</th>
+                                                    <th class="text-white">Phone No Two</th>
+                                                    <th class="text-white">Phone No Three</th>
                                                     <th class="text-white">Action</th>
                                                 </tr>
                                             </thead>
@@ -50,7 +53,10 @@
                                                     <td>{{ $item->department_name }}</td>
                                                     <td>{{ $item->location }}</td>
                                                     <td>{{ $item->timing }}</td>
+                                                    <td>{{ $item->email }}</td>
                                                     <td>{{ $item->phone }}</td>
+                                                    <td>{{ $item->phoneno_two }}</td>
+                                                    <td>{{ $item->phoneno_two }}</td>
                                                     <td>
                                                         <a href="{{ route('departments.edit',$item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                                         {{-- <a href="{{ route('departments.delete',$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a> --}}

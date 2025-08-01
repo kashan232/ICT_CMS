@@ -158,8 +158,8 @@ class CropController extends Controller
         // Handle image if uploaded
         if ($request->hasFile('crop_image')) {
             $imageName = time() . '.' . $request->crop_image->extension();
-            $request->crop_image->move(public_path('uploads/crops'), $imageName);
-            $crop->crop_image = 'uploads/crops/' . $imageName;
+            $request->crop_image->move(public_path('crops'),$imageName);
+            $crop->crop_image =  $imageName;
         }
 
         // Prepare JSON details

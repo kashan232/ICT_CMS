@@ -165,13 +165,13 @@
                     </ul>
                 </div>
             </li>
-                 <li class="side-nav-item {{ Request::routeIs("departments.index",'allbanner.index','upcomingtenders.index','documents.index','director-general.index','district.index','headline.index','extension.index','banners.index','videos.index','subcenter.index') ? 'active-parent' : '' }}">
-                <a data-bs-toggle="collapse" href="#dynamic" aria-expanded="{{ Request::routeIs('news.create','allbanner.index','upcomingtenders.index','documents.index','district.index','director-general.index','headline.index','extension.index','subcenter.index','videos.index', 'news.index') ? 'true' : 'false' }}" aria-controls="pdfsidebar" class="side-nav-link text-dark   ">
+                 <li class="side-nav-item {{ Request::routeIs("departments.index",'gallery.index','allbanner.index','upcomingtenders.index','documents.index','director-general.index','district.index','headline.index','extension.index','banners.index','videos.index','subcenter.index') ? 'active-parent' : '' }}">
+                <a data-bs-toggle="collapse" href="#dynamic" aria-expanded="{{ Request::routeIs('news.create','gallery.index','allbanner.index','upcomingtenders.index','documents.index','district.index','director-general.index','headline.index','extension.index','subcenter.index','videos.index', 'news.index') ? 'true' : 'false' }}" aria-controls="pdfsidebar" class="side-nav-link text-dark   ">
                     <i class="uil-store"></i>
                     <span>Web dynamic</span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse {{ Request::routeIs('departments.index','allbanner.index','documents.index','upcomingtenders.index','director-general.index','headline.index','district.index','extension.index','videos.index','banners.index','subcenter.index') ? 'show' : '' }}" id="dynamic">
+                <div class="collapse {{ Request::routeIs('departments.index','gallery.index','allbanner.index','documents.index','upcomingtenders.index','director-general.index','headline.index','district.index','extension.index','videos.index','banners.index','subcenter.index') ? 'show' : '' }}" id="dynamic">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{ route('departments.index') }}" class="  {{ Request::routeIs('departments.index') ? 'active-link' : '' }}  text-dark">Header</a>
@@ -205,6 +205,9 @@
                         </li>
                           <li>
                             <a href="{{ route('upcomingtenders.index') }}" class="{{ Request::routeIs('upcomingtenders.index') ? 'active-link' : '' }} text-dark    ">upcoming Tenders</a>
+                        </li>
+                          <li>
+                            <a href="{{ route('gallery.index') }}" class="{{ Request::routeIs('gallery.index') ? 'active-link' : '' }} text-dark    ">Employe Images</a>
                         </li>
                     </ul>
                 </div>

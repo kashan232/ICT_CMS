@@ -15,7 +15,9 @@
 <div class="mb-3"><label>email</label><input type="text" name="email" class="form-control" value="{{ $department->email }}" required></div>
 <div class="mb-3"><label>Location</label><input type="text" name="location" class="form-control" value="{{ $department->location }}" required></div>
 <div class="mb-3"><label>Timing</label><input type="text" name="timing" class="form-control" value="{{ $department->timing }}" required></div>
-<div class="mb-3"><label>Phone</label><input type="text" name="phone" class="form-control" value="{{ $department->phone }}" required></div>
+<div class="mb-3"><label>Phone No 1</label><input type="text" name="phone" class="form-control" value="{{ $department->phone }}" required></div>
+<div class="mb-3"><label>Phone No 2</label><input type="text" name="phoneno_two" class="form-control" value="{{ $department->phoneno_two }}" ></div>
+<div class="mb-3"><label>Phone No 3</label><input type="text" name="phoneno_three" class="form-control" value="{{ $department->phoneno_three }}" ></div>
 <button class="btn " style="background-color:green; color:white !important;">Update Department</button>
 <a href="{{ route('departments.index') }}" class="btn btn-secondary">Cancel</a>
 </form>

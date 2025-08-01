@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PDF;
 use App\Models\Crop;
 use App\Models\News;
-use App\Models\CropCategory;
-use App\Models\CropDiseaseSubType;
-use App\Models\CropDiseaseType;
-use App\Models\CropManagement;
-use App\Models\PDF;
-use App\Models\Department;
-use App\Models\Banner;
 use App\Models\Video;
-use App\Models\Subcenter;
-use App\Models\Extension;
-use App\Models\DirectorGeneral;
-use App\Models\Headlines;
+use App\Models\Banner;
 use App\Models\Contact;
+use App\Models\Gallery;
+use App\Models\AllBanner;
+use App\Models\Extension;
+use App\Models\Headlines;
+use App\Models\Subcenter;
+use App\Models\Department;
+use App\Models\CropCategory;
+use Illuminate\Http\Request;
+use App\Models\CropManagement;
 use App\Models\DistrictOffice;
 use App\Models\UpcomingTender;
-use App\Models\ProjectDocument;
-use App\Models\AllBanner;
+use App\Models\CropDiseaseType;
+use App\Models\DirectorGeneral;
 
-use Illuminate\Http\Request;
+use App\Models\ProjectDocument;
+use App\Models\CropDiseaseSubType;
 use Illuminate\Support\Facades\Auth;
 
 class APIController extends Controller
@@ -437,5 +438,22 @@ class APIController extends Controller
     return response()->json(['status' => 'success', 'message' => 'Submitted Successfully']);
 }
 
+ public function gallery()
+    {
+        $Gallery = Gallery::all();
 
+        if ($Gallery->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No Gallery records found.',
+                'data' => []
+            ], 404);
+        } else {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Gallery fetched successfully.',
+                'data' => $Gallery
+            ]);
+        }
+    }
 }

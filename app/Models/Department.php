@@ -14,5 +14,8 @@ class Department extends Model
         'location',
         'timing',
         'phone',
+        'phoneno_two',
+        'phoneno_three',
+        'email',
     ];
 }

@@ -1,13 +1,13 @@
 <!-- JS Vendor Files -->
-<script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
-{{-- <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script> --}}
-<script src="{{ asset('assets/vendor/jsvectormap/jsvectormap.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/jsvectormap/maps/world-merc.js') }}"></script>
-<script src="{{ asset('assets/vendor/jsvectormap/maps/world.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/pages/demo.dashboard.js') }}"></script> --}}
-<script src="{{ asset('assets/js/app.min.js') }}"></script>
+<script src="{{ env('APP_URL') }}public/assets/js/vendor.min.js"></script>
+<script src="{{ env('APP_URL') }}public/assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="{{ env('APP_URL') }}public/assets/vendor/daterangepicker/daterangepicker.js"></script>
+{{-- <script src="{{ env('APP_URL') }}public/assets/vendor/apexcharts/apexcharts.min.js"></script> --}}
+<script src="{{ env('APP_URL') }}public/assets/vendor/jsvectormap/jsvectormap.min.js"></script>
+<script src="{{ env('APP_URL') }}public/assets/vendor/jsvectormap/maps/world-merc.js"></script>
+<script src="{{ env('APP_URL') }}public/assets/vendor/jsvectormap/maps/world.js"></script>
+{{-- <script src="{{ env('APP_URL') }}public/assets/js/pages/demo.dashboard.js"></script> --}}
+<script src="{{ env('APP_URL') }}public/assets/js/app.min.js"></script>
 
 <!-- CDN Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

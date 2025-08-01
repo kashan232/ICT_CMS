@@ -23,6 +23,8 @@ class DepartmentController extends Controller
             'timing' => 'required',
             'phone' => 'required',
             'email' => 'required',
+            'phoneno_two' => 'nullable',
+            'phoneno_three' => 'nullable',
         ]);
 
         Department::create($request->all());
@@ -36,6 +38,15 @@ class DepartmentController extends Controller
     }
 
     public function update(Request $request, $id) {
+         $request->validate([
+            'department_name' => 'required',
+            'location' => 'required',
+            'timing' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'phoneno_two' => 'nullable',
+            'phoneno_three' => 'nullable',
+        ]);
         $department = Department::findOrFail($id);
         $department->update($request->all());
         return redirect()->route('departments.index')->with('success', 'Department Updated Successfully');

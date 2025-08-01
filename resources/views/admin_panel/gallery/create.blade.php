@@ -6,41 +6,55 @@
     <div class="content-page">
         <div class="content">
             <div class="container-fluid">
+
                 <div class="card shadow-sm mt-4">
                     <div class="card-header text-white" style="background-color:green;">
-                        <h5>Add Banner</h5>
+                        <h5>Add Gallery</h5>
                     </div>
                     <div class="card-body">
+
                         @if(session()->has('success'))
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
-                        <form method="POST" action="{{ route('allbanner.store') }}" enctype="multipart/form-data" onsubmit="disableButton(this)"    >
+                        <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data" onsubmit="disableButton(this)">
                             @csrf
+
                             <div class="mb-3">
-                                <label>Heading</label>
-                                <input type="text" name="heading" class="form-control" required>
+                                <label>Employee Name</label>
+                                <input type="text" name="employee_name" class="form-control" required>
                             </div>
+
                             <div class="mb-3">
-                                <label>Type</label>
-                                <input type="text" name="type" class="form-control" required placeholder="Crop, News, Sidebar etc.">
+                                <label>Designation</label>
+                                <input type="text" name="designation" class="form-control" required>
                             </div>
+
                             <div class="mb-3">
                                 <label>Image (Optional)</label>
                                 <input type="file" name="image" class="form-control" accept="image/*">
                             </div>
+
                             <div class="text-end">
-                                <button type="submit" class="btn" style="background-color:green;color:white;">Add Banner</button>
-                                <a href="{{ route('allbanner.index') }}" class="btn btn-secondary">Cancel</a>
+                                <button type="submit" class="btn" style="background-color:green;color:white;">Add Gallery</button>
+                                <a href="{{ route('gallery.index') }}" class="btn btn-secondary">Cancel</a>
                             </div>
+
                         </form>
 
                     </div>
                 </div>
+
             </div>
-        </div>
     </div>
 
     @include('admin_panel.includes.footer')
 </div>
 @include('admin_panel.includes.footer_links')
+<script>
+    function disableButton(form) {
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.innerText = 'Please wait...';
+    }
+</script>

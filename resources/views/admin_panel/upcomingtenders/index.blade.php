@@ -39,8 +39,11 @@
                                         <td>{{ $item->date }}</td>
                                         <td>
                                             @if($item->pdf_file)
-                                                <a href="{{ asset('storage/' . $item->pdf_file) }}" target="_blank" class="btn btn-sm btn-primary">View PDF</a>
-                                            @else
+                                                {{-- <a href="{{ asset('storage/' . $item->pdf_file) }}" target="_blank" class="btn btn-sm btn-primary">View PDF</a> --}}
+                                             <a href="{{ env('APP_URL') . 'public/storage/' . $item->pdf_file }}" target="_blank" class="btn btn-sm btn-primary">
+                                                View PDF
+                                            </a>
+                                                @else
                                                 <span class="text-muted">No PDF</span>
                                             @endif
                                         </td>

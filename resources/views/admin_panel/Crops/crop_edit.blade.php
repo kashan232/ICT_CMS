@@ -18,7 +18,7 @@
                                 </div>
                                 @endif
 
-                                <form action="{{ route('Crops.update', $crop->id) }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
+                                <form action="{{ route('Crops.update',$crop->id) }}" method="POST" enctype="multipart/form-data" onsubmit="disableButton(this)">
                                     @csrf
 
                                     <div class="mb-3">
